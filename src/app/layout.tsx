@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { Inter, Geist } from "next/font/google"; // Hoặc font Geist nếu bạn dùng bản mới
+console.log(envConfig);
+import envConfig from "../config";
 import "./globals.css";
 import { cn } from "@/lib/utils"; // Import hàm cn để gộp class sạch sẽ hơn
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "Quản lý món ăn",
@@ -16,7 +18,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={cn("font-sans", geist.variable)}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn("font-sans", geist.variable)}
+    >
       {/* Thêm suppressHydrationWarning để tránh lỗi khi dùng dark mode/next-themes */}
       <body
         className={cn(
