@@ -4,6 +4,7 @@ console.log(envConfig);
 import envConfig from "../config";
 import "./globals.css";
 import { cn } from "@/lib/utils"; // Import hàm cn để gộp class sạch sẽ hơn
+import AppProvider from "@/components/app-provider";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -30,7 +31,7 @@ export default function RootLayout({
           geist.variable,
         )}
       >
-        {children}
+        <AppProvider>{children}</AppProvider>
       </body>
     </html>
   );
